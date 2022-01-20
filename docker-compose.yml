@@ -1,15 +1,11 @@
 version: '3.3'
 
 services: 
-    nginx:latest:
+    webserver:
 
-        image: httpd  
+        image: nginx:latest
         ports: 
             
-            - 8080:80
+            - 80:80
         volumes: 
-            - ./my-httpd.conf:/usr/local/apache2/conf/httpd.conf
-
-            - ./my-vhosts.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf
-
-            - ./maps:/usr/local/apache2/htdocs/maps
+            - ./www:/usr/share/nginx/html
